@@ -1,161 +1,69 @@
-HumanLink
+# 🤝 HumanLink
 
-Tagline: Connecting People. Creating Impact.
+> A platform where people help people — powered by trust, karma, and community.
 
-⸻
+---
 
-Vision
+## 🌍 What is HumanLink?
 
-HumanLink is a community-driven platform that connects people who need help with people, businesses, NGOs, and volunteer groups who can help.
+HumanLink connects:
+- 🆘 People who need help
+- 🤝 People who can help
 
-The goal is to become India’s most trusted community platform by bringing together individuals and organizations in one ecosystem.
+Instead of money-first systems, HumanLink is built on:
+- Karma points
+- Reputation
+- Real human connection
 
-⸻
+---
 
-Mission
+## 🚀 Core Idea
 
-To simplify helping and finding help while building trust, transparency, and meaningful community connections through technology and AI.
+Users can:
+- Post help requests
+- Accept help requests
+- Earn karma for helping others
+- Build trust over time
 
-⸻
+---
 
-Platform Users
+## 🧠 Key Features (MVP)
 
-* Individuals
-* Helpers
-* NGOs
-* Volunteer Groups
-* Businesses
-* Corporate CSR Teams
-* Platform Administrators
+- User authentication
+- Create help requests
+- Accept / complete requests
+- Karma points system
+- Reviews between users
+- Basic profile system
 
-⸻
+---
 
-Planned Features
+## 🏗️ Tech Stack (Planned)
 
-Community
+- Next.js (Frontend + API routes)
+- TypeScript
+- PostgreSQL
+- Prisma ORM
+- NextAuth (Authentication)
 
-* Community Feed
-* Photo Posts
-* Video Posts
-* Stories
-* Likes
-* Comments
-* Shares
-* Follow System
+---
 
-Help & Support
+## 📌 Status
 
-* Create Help Requests
-* AI-assisted Request Creation
-* Helper Matching
-* Emergency Requests
+🚧 Early development stage  
+📦 Project structure coming next  
+⚙️ Backend APIs in progress
 
-NGOs
+---
 
-* NGO Profiles
-* Campaign Management
-* Volunteer Management
-* Donation Campaigns
+## ❤️ Vision
 
-Businesses
+HumanLink is not just an app.
 
-* Business Profiles
-* Promotions
-* Sponsored Posts
-* Hiring
-* CSR Activities
+It is a system that rewards humanity.
 
-Volunteer Groups
+---
 
-* Team Management
-* Events
-* Attendance
-* Certificates
+## 👨‍💻 Author
 
-AI
-
-* AI Assistant
-* AI Content Writing
-* AI Translation
-* AI Recommendations
-
-Communication
-
-* Real-time Chat
-* Notifications
-* Email Notifications
-
-Trust System
-
-* Verified Accounts
-* Ratings
-* Reviews
-* Reputation Points
-* Badges
-
-Admin
-
-* User Management
-* Business Management
-* NGO Management
-* Reports
-* Analytics
-
-⸻
-
-Revenue Model
-
-* Premium Membership
-* Business Promotions
-* NGO Subscription
-* Volunteer Organization Subscription
-* Corporate CSR Plans
-* Featured Listings
-* AI Premium Features
-* Recruitment Services
-* Event Promotions
-* Verification Services
-
-⸻
-
-Technology Stack
-
-* Next.js
-* TypeScript
-* Tailwind CSS
-* Prisma ORM
-* PostgreSQL
-* GitHub
-* AI Integration
-
-⸻
-
-Brand Colors
-
-Primary: Deep Blue
-
-Secondary: Emerald Green
-
-Accent: Orange
-
-Background: White
-
-Text: Dark Gray
-
-⸻
-
-Long-Term Goal
-
-Build HumanLink into India’s leading platform for connecting communities, businesses, NGOs, and volunteers while creating measurable social impact.
-
-⸻
-
-Status
-
-Version: 0.1.0
-
-Current Phase: Planning
-
-Founder: Sai Chand
-
-Project Name: HumanLink
+Built by Sai Chand
