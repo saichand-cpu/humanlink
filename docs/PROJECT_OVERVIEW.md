@@ -39,5 +39,5 @@ Application Development
 - Messaging
 - Notifications
 - Payments
-- Admin Panel
+- Admin Panel 
 - Analytics
