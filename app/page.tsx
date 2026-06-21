@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import AcceptButton from "@/components/AcceptButton";
 
 type HelpRequest = {
   id: string;
@@ -40,10 +41,8 @@ export default function Home() {
 
       <div className="space-y-4">
         {requests.map((req) => (
-          <div
-            key={req.id}
-            className="border p-4 rounded-lg shadow-sm"
-          >
+          <div key={req.id} className="border p-4 rounded-lg shadow-sm">
+
             <h2 className="text-lg font-semibold">{req.title}</h2>
             <p className="text-gray-600">{req.description}</p>
 
@@ -58,6 +57,18 @@ export default function Home() {
             <div className="mt-2 font-medium">
               Reward: {req.karmaReward} ⭐
             </div>
+
+            {/* ACTION BUTTON */}
+            {req.status === "OPEN" && (
+              <div className="mt-3">
+                <AcceptButton
+                  requestId={req.id}
+                  helperId="TEMP_USER_ID"
+                  onSuccess={() => window.location.reload()}
+                />
+              </div>
+            )}
+
           </div>
         ))}
       </div>
