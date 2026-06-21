@@ -1,77 +1,69 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import AcceptButton from "@/components/AcceptButton";
-
-type HelpRequest = {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  status: string;
-  karmaReward: number;
-  requester: {
-    id: string;
-    name: string;
-    karmaPoints: number;
-  };
-};
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [requests, setRequests] = useState<HelpRequest[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("/api/requests/all")
-      .then((res) => res.json())
-      .then((data) => {
-        setRequests(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
-
-  if (loading) {
-    return <div className="p-6">Loading HumanLink feed...</div>;
-  }
+  const router = useRouter();
 
   return (
-    <main className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">🤝 HumanLink Feed</h1>
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col">
 
-      <div className="space-y-4">
-        {requests.map((req) => (
-          <div key={req.id} className="border p-4 rounded-lg shadow-sm">
+      {/* Navbar */}
+      <header className="flex justify-between items-center px-6 py-4 shadow-sm">
+        <h1 className="text-2xl font-bold text-blue-600">HumanLink</h1>
 
-            <h2 className="text-lg font-semibold">{req.title}</h2>
-            <p className="text-gray-600">{req.description}</p>
+        <div className="space-x-4">
+          <button
+            onClick={() => router.push("/login")}
+            className="px-4 py-2 border rounded-md"
+          >
+            Login
+          </button>
 
-            <div className="mt-2 text-sm text-gray-500">
-              Category: {req.category} | Status: {req.status}
-            </div>
+          <button
+            onClick={() => router.push("/signup")}
+            className="px-4 py-2 bg-blue-600 text-white rounded-md"
+          >
+            Sign Up
+          </button>
+        </div>
+      </header>
 
-            <div className="mt-2 text-sm">
-              👤 {req.requester.name} (⭐ {req.requester.karmaPoints})
-            </div>
+      {/* Hero Section */}
+      <main className="flex flex-1 flex-col items-center justify-center text-center px-6">
 
-            <div className="mt-2 font-medium">
-              Reward: {req.karmaReward} ⭐
-            </div>
+        <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          Connect. Help. Earn Trust.
+        </h2>
 
-            {/* ACTION BUTTON */}
-            {req.status === "OPEN" && (
-              <div className="mt-3">
-                <AcceptButton
-                  requestId={req.id}
-                  helperId="TEMP_USER_ID"
-                  onSuccess={() => window.location.reload()}
-                />
-              </div>
-            )}
+        <p className="mt-4 text-gray-600 max-w-xl">
+          HumanLink connects people who need help with people who can solve problems.
+          Earn karma points, build reputation, and grow your impact.
+        </p>
 
-          </div>
-        ))}
-      </div>
-    </main>
+        <div className="mt-6 space-x-4">
+          <button
+            onClick={() => router.push("/requests")}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg"
+          >
+            Explore Requests
+          </button>
+
+          <button
+            onClick={() => router.push("/requests/create")}
+            className="px-6 py-3 border rounded-lg"
+          >
+            Post a Request
+          </button>
+        </div>
+
+      </main>
+
+      {/* Footer */}
+      <footer className="text-center py-6 text-sm text-gray-500">
+        © 2026 HumanLink — Built for helping humans.
+      </footer>
+
+    </div>
   );
 }
