@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type RequestItem = {
   id: string;
@@ -33,34 +34,41 @@ export default function RequestsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-
       {/* Header */}
       <div className="px-6 py-4 bg-white shadow-sm flex justify-between items-center">
-        <h1 className="text-xl font-bold text-blue-600">Help Requests</h1>
-        <a
+        <h1 className="text-xl font-bold text-blue-600">
+          Help Requests
+        </h1>
+
+        <Link
           href="/requests/create"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md"
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
         >
           + Post Request
-        </a>
+        </Link>
       </div>
 
       {/* Content */}
       <div className="max-w-3xl mx-auto px-4 py-6">
-
         {loading ? (
           <p className="text-gray-500">Loading requests...</p>
         ) : requests.length === 0 ? (
-          <p className="text-gray-500">No requests found. Be the first to help!</p>
+          <p className="text-gray-500">
+            No requests found. Be the first to help!
+          </p>
         ) : (
           <div className="space-y-4">
             {requests.map((req) => (
-              <div
+              <Link
+                href={`/requests/${req.id}`}
                 key={req.id}
-                className="bg-white rounded-xl shadow p-4 border"
+                className="block bg-white rounded-xl shadow p-4 border hover:shadow-md hover:border-blue-400 transition"
               >
                 <div className="flex justify-between items-center">
-                  <h2 className="font-semibold text-lg">{req.title}</h2>
+                  <h2 className="font-semibold text-lg">
+                    {req.title}
+                  </h2>
+
                   <span
                     className={`text-xs px-2 py-1 rounded-full ${
                       req.status === "open"
@@ -72,19 +80,21 @@ export default function RequestsPage() {
                   </span>
                 </div>
 
-                <p className="text-gray-600 mt-2">{req.description}</p>
+                <p className="text-gray-600 mt-2">
+                  {req.description}
+                </p>
 
                 <div className="flex justify-between mt-3 text-sm text-gray-500">
                   <span>Category: {req.category}</span>
+
                   <span>
                     {new Date(req.createdAt).toLocaleDateString()}
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
-
       </div>
     </div>
   );
