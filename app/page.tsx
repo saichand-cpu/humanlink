@@ -1,69 +1,71 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
-  const router = useRouter();
-
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col">
-
-      {/* Navbar */}
-      <header className="flex justify-between items-center px-6 py-4 shadow-sm">
-        <h1 className="text-2xl font-bold text-blue-600">HumanLink</h1>
-
-        <div className="space-x-4">
-          <button
-            onClick={() => router.push("/login")}
-            className="px-4 py-2 border rounded-md"
-          >
-            Login
-          </button>
-
-          <button
-            onClick={() => router.push("/signup")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md"
-          >
-            Sign Up
-          </button>
-        </div>
-      </header>
-
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
       {/* Hero Section */}
-      <main className="flex flex-1 flex-col items-center justify-center text-center px-6">
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="text-center">
 
-        <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-          Connect. Help. Earn Trust.
-        </h2>
+          <h1 className="text-6xl font-extrabold text-gray-900 leading-tight">
+            Connecting People.
+            <br />
+            <span className="text-blue-600">
+              Changing Lives.
+            </span>
+          </h1>
 
-        <p className="mt-4 text-gray-600 max-w-xl">
-          HumanLink connects people who need help with people who can solve problems.
-          Earn karma points, build reputation, and grow your impact.
-        </p>
+          <p className="mt-8 text-xl text-gray-600 max-w-3xl mx-auto">
+            HumanLink connects people who need help with people who are ready
+            to help. Build trust, earn karma points, and make a real impact in
+            your community.
+          </p>
 
-        <div className="mt-6 space-x-4">
-          <button
-            onClick={() => router.push("/requests")}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg"
-          >
-            Explore Requests
-          </button>
+          <div className="flex justify-center gap-5 mt-12 flex-wrap">
 
-          <button
-            onClick={() => router.push("/requests/create")}
-            className="px-6 py-3 border rounded-lg"
-          >
-            Post a Request
-          </button>
+            <Link
+              href="/create"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition"
+            >
+              Request Help
+            </Link>
+
+            <Link
+              href="/requests"
+              className="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl font-semibold transition"
+            >
+              Become a Helper
+            </Link>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6 pb-24">
+
+        <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+          <h2 className="text-4xl font-bold text-blue-600">1000+</h2>
+          <p className="mt-2 text-gray-600">
+            Lives Impacted
+          </p>
         </div>
 
-      </main>
+        <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+          <h2 className="text-4xl font-bold text-blue-600">500+</h2>
+          <p className="mt-2 text-gray-600">
+            Active Helpers
+          </p>
+        </div>
 
-      {/* Footer */}
-      <footer className="text-center py-6 text-sm text-gray-500">
-        © 2026 HumanLink — Built for helping humans.
-      </footer>
+        <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+          <h2 className="text-4xl font-bold text-blue-600">99%</h2>
+          <p className="mt-2 text-gray-600">
+            Successful Requests
+          </p>
+        </div>
 
-    </div>
+      </section>
+    </main>
   );
 }
